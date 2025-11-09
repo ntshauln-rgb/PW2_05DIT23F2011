@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+background-image : url("sekolah.png");
+label{
+display: inline-block;
+width: 200px;
+}
+h3{
+text-align: center;
+}
+</style>
+<link href ="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel ="stylesheet">
+</head>
+
+<body>
+<div class = "container p-5 my-5 bg-warning text-black " style ="max-width:700px">
+<h1 class = "text-center">BLOOM COLLEGE</h1>
+<h2 class = "text-center">Student Registration Form</h2>
+<p>
+<hr>
+<form id = "StudentForm">
+
+<label>Student Image:</label>
+<input type = "file" id = "student_image">
+
+<label>Student Name:</label>
+<input type = "text" id = "StudentName" placeholder = "Full Name" onBlur = "changeColor(this)" onChange = "toUppercase(this)" style= "width:350px"><br>
+
+<label>Father's Name:</label>
+<input type = "text" id = "FathersName" placeholder = "Father's Name" onChange = "toUppercase(this)"><br>
+
+<label>Mother's Name:</label>
+<input type = "text" id = "MothersName" placeholder = "Mother's Name" onChange = "toUppercase(this)"><br>
+
+<label>Gender:</label>
+<input type = "radio" id ="male" name ="gender" value = "Male"> Male
+<input type = "radio" id ="female" name = "gender" value = "Female"> Female<br>
+
+<label>Date of Birth</label>
+<input type = "date" name = "dob"><br>
+<label>E-mail:</label>
+<input type = "email" name = "email" placeholder = "Email@.com" onFocus = "highlightEmail(this)"><br>
+
+<label>Level:</label>
+<select name = "Phd" id = "level">
+<option value = "Phd">Phd</option>
+<option value = "Diploma">Diploma</option>
+<option value = "Degree">Degree</option>
+</select><br>
+
+<label>Department:</label>
+<select name = "Department" id = "department">
+<option value = "Computer Engineering">Computer Engineering</option>
+<option value = "Information Technology">Information Technology</option>
+<option value = "Business">Business</option>
+</select><br>
+
+<label>Tel/Mobile:</label>
+<input type = "number" id = "telnumber" placeholder ="01********"><br>
+<p>
+<hr>
+<h3>Address</h3>
+<p>
+<p>
+
+<label>State:</label>
+<input type = "text" id = "state" placeholder = "State"><br>
+
+<label>City:</label>
+<input type = "text" id = "city" placeholder = "City"><br>
+
+<label>Postcode:</label>
+<input type = "text" id = "postcode" placeholder = "postcode"><br>
+
+<div class = "text-center">
+<div class = "button-group">
+<input type = "submit" value = "Register">
+<input type = "reset" value = "Reset">
+<hr>
+</div>
+</form>
+</div>
+
+<div class = "modal fade" id = "SuccessModal" tabindex = "-1" aria-hidden = "true">
+<div class = "modal-dialog modal-dialog-centered">
+<div class = "modal-content">
+<div class = "modal-header bg-success text-white">
+<h5 class = "modal-title">Success</h5>
+<button type ="button" class = "btn-close btn-close-white" data-bs-dismiss = "modal"</button>
+</div>
+<div class = "modal-body">
+Your details have been saved!
+</div>
+</div>
+</div>
+</div>
+
+<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function changeColor(element) {
+element.style.backgroundColor = "lightblue";
+}
+function toUppercase(element) {
+element.value = element.value.toUpperCase();
+}
+function highlightEmail(element) {
+element.style.backgroundColor = "lavender";
+}
+function showSuccessModal(e) {
+e.preventDefault();
+new bootstrap.Modal(document.getElementById("SuccessModal")).show();
+}
+document.getElementById("StudentForm").addEventListener("submit", showSuccessModal);
+
+</script>
+</div>
+</body>
+</html>
